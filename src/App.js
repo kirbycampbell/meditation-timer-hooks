@@ -1,28 +1,18 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+import "./App.css";
+
+export default function App() {
+  const [time, setTime] = useState(0);
+  const [countdown, setCountdown] = useState(0);
+  return (
+    <div className="App">
+      <input
+        placeholder="Enter Desired Min"
+        onChange={event => setTime(event.target.value)}
+      />
+      <button onClick={() => setCountdown(time)}>Set Timer</button>
+      <p>{countdown}</p>
+    </div>
+  );
 }
-
-export default App;
