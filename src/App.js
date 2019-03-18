@@ -47,8 +47,12 @@ export default function App() {
       {!startCount && (
         <div>
           <input
+            type="number"
+            min="1"
+            max="140"
+            required
             className="form-control"
-            placeholder="Enter Desired Min"
+            placeholder="Enter Desired Time"
             onChange={event => setMin(event.target.value)}
             style={{
               textAlign: "center",
@@ -61,6 +65,7 @@ export default function App() {
               color: "white"
             }}
           />
+
           <button className="btn btn-primary" onClick={() => handleCountDown()}>
             Set Timer
           </button>
