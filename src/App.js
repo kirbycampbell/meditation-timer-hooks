@@ -70,6 +70,9 @@ export default function App() {
   return (
     <div className="App">
       {/* BASIC VIEW - USER Set Time and Button to Start Shown  */}
+      <div className="top-nav">
+        <i className="icon fas fa-bars" />
+      </div>
       {!startCount && (
         <div>
           <input
@@ -90,13 +93,29 @@ export default function App() {
       {startCount && (
         <div>
           <h1 className="counting">{`${min}:${seconds}`}</h1>
+          <div className="progress">
+            <div
+              className="progress-bar"
+              role="progressbar"
+              style={{ width: "100%" }}
+              aria-valuenow={"100"}
+              aria-valuemin={`${min}:${seconds}`}
+              aria-valuemax="0:00"
+            />
+          </div>
           <button className="btn btn-primary" onClick={() => handleStop()}>
             Stop Timer
           </button>
         </div>
       )}
       {/* END VIEW - Completion shown Below BASIC VIEW */}
-      <div className="complete-bnr">{end && <h1>Completion</h1>}</div>
+      <div className="complete-bnr">
+        {end && (
+          <h1 className="complete" onClick={() => setHiddenTime(0)}>
+            Completion
+          </h1>
+        )}
+      </div>
     </div>
   );
 }
