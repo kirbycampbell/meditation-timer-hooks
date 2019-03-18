@@ -8,6 +8,8 @@ export default function App() {
   const [min, setMin] = useState(0);
   const [seconds, setSeconds] = useState("00");
   const [startCount, setStartCount] = useState(false);
+  const [end, setEnd] = useState(false);
+  const [hiddenTime, setHiddenTime] = useState(5);
 
   const handleCountDown = () => {
     setStartCount(true);
@@ -19,13 +21,6 @@ export default function App() {
     ],
     volume: 0.3
   });
-
-  const handleStop = () => {
-    setStartCount(false);
-    setSeconds("00");
-    setMin(0);
-    sound.play();
-  };
 
   useInterval(() => {
     if (startCount) {
@@ -42,6 +37,23 @@ export default function App() {
     }
   }, 1000);
 
+  const handleStop = () => {
+    setStartCount(false);
+    setSeconds("00");
+    setMin(0);
+    setEnd(true);
+    sound.play();
+  };
+
+  useInterval(() => {
+    console.log(hiddenTime);
+    if (end && hiddenTime > 0) {
+      setHiddenTime(hiddenTime - 1);
+    } else if (end && hiddenTime <= 0) {
+      setEnd(false);
+    }
+  }, 1000);
+
   return (
     <div className="App">
       {!startCount && (
@@ -51,19 +63,9 @@ export default function App() {
             min="1"
             max="140"
             required
-            className="form-control"
+            className="time-form form-control"
             placeholder="Enter Desired Time"
             onChange={event => setMin(event.target.value)}
-            style={{
-              textAlign: "center",
-              background: "#282c34",
-              border: "none",
-              fontSize: "40px",
-              fontStyle: "bold",
-              height: "20vh",
-              marginBottom: "10vh",
-              color: "white"
-            }}
           />
 
           <button className="btn btn-primary" onClick={() => handleCountDown()}>
@@ -79,6 +81,7 @@ export default function App() {
           </button>
         </div>
       )}
+      <div>{end && <h1>OVER</h1>}</div>
     </div>
   );
 }
