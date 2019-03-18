@@ -11,6 +11,7 @@ export default function App() {
   const [startCount, setStartCount] = useState(false);
   const [end, setEnd] = useState(false);
   const [hiddenTime, setHiddenTime] = useState(5);
+  const [menuShow, setMenuShow] = useState(false);
 
   // Declares and Assigns Ending Sound - TODO: Extract several sounds - and give user a choice
   const sound = new Howl({
@@ -67,12 +68,29 @@ export default function App() {
     }
   }, 1000);
 
+  const handleMenu = () => {
+    setMenuShow(!menuShow);
+  };
+
   return (
     <div className="App">
-      {/* BASIC VIEW - USER Set Time and Button to Start Shown  */}
+      {/* NAV BURGER VIEW AT TOP  */}
+
       <div className="top-nav">
-        <i className="icon fas fa-bars" />
+        <i className="icon fas fa-bars" onClick={() => handleMenu()} />
       </div>
+      {menuShow && <div className="my-menu">HELLO</div>}
+
+      {/* END VIEW - Completion shown Below BASIC VIEW */}
+      <div className="complete-bnr">
+        {end && (
+          <h1 className="complete" onClick={() => setHiddenTime(0)}>
+            Completion
+          </h1>
+        )}
+      </div>
+
+      {/* BASIC VIEW - USER Set Time and Button to Start Shown  */}
       {!startCount && (
         <div>
           <input
@@ -84,7 +102,10 @@ export default function App() {
             placeholder="Enter Desired Time"
             onChange={event => setMin(event.target.value)}
           />
-          <button className="btn btn-primary" onClick={() => handleCountDown()}>
+          <button
+            className="btn btn-primary btn-loca"
+            onClick={() => handleCountDown()}
+          >
             Set Timer
           </button>
         </div>
@@ -93,29 +114,15 @@ export default function App() {
       {startCount && (
         <div>
           <h1 className="counting">{`${min}:${seconds}`}</h1>
-          <div className="progress">
-            <div
-              className="progress-bar"
-              role="progressbar"
-              style={{ width: "100%" }}
-              aria-valuenow={"100"}
-              aria-valuemin={`${min}:${seconds}`}
-              aria-valuemax="0:00"
-            />
-          </div>
-          <button className="btn btn-primary" onClick={() => handleStop()}>
+
+          <button
+            className="btn btn-primary btn-loca"
+            onClick={() => handleStop()}
+          >
             Stop Timer
           </button>
         </div>
       )}
-      {/* END VIEW - Completion shown Below BASIC VIEW */}
-      <div className="complete-bnr">
-        {end && (
-          <h1 className="complete" onClick={() => setHiddenTime(0)}>
-            Completion
-          </h1>
-        )}
-      </div>
     </div>
   );
 }

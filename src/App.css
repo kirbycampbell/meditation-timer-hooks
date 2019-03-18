@@ -5,19 +5,18 @@
   color: white;
 }
 
-.counting {
-  text-align: center;
-  font-size: 40px;
-  font-style: bold;
-  padding: 10%;
-  height: 20vh;
-  margin-bottom: 10vh;
-}
-
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.counting {
+  text-align: center;
+  font-size: 40px;
+  font-style: bold;
+  height: 20vh;
+  margin-bottom: 10vh;
 }
 
 .time-form:focus {
@@ -41,6 +40,17 @@ input[type="number"]::-webkit-outer-spin-button {
   color: white;
 }
 
+.my-menu {
+  position: absolute;
+  background: rgba(112, 112, 172, 0.98);
+  border-radius: 50px;
+  box-shadow: 8px 7px #277174a1;
+  height: 40vh;
+  width: 100%;
+  margin-bottom: 10vh;
+  z-index: 10;
+}
+
 .complete-bnr {
   margin-top: 10vh;
 }
@@ -53,6 +63,22 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .complete {
   cursor: pointer;
+  justify-items: center;
+  position: absolute;
+  background: rgba(66, 25, 50, 0.98);
+  border-radius: 150px;
+  box-shadow: 8px 7px #277174a1;
+  height: 20vh;
+  width: 100%;
+  margin-bottom: 10vh;
+  z-index: 10;
+}
+.btn-loca {
+  font-size: 20px;
+  height: 10vh;
+  width: 60vw;
+  margin-top: 30%;
+  margin-bottom: 5%;
 }
 
 .icon {
