@@ -5,16 +5,14 @@ import useInterval from "./useInterval";
 import { Howl } from "howler";
 
 export default function App() {
+  //Declares all of the state items min(minute), sec(second), startCount, end, hiddenTime
   const [min, setMin] = useState(0);
   const [seconds, setSeconds] = useState("00");
   const [startCount, setStartCount] = useState(false);
   const [end, setEnd] = useState(false);
   const [hiddenTime, setHiddenTime] = useState(5);
 
-  const handleCountDown = () => {
-    setStartCount(true);
-  };
-
+  // Declares and Assigns Ending Sound - TODO: Extract several sounds - and give user a choice
   const sound = new Howl({
     src: [
       "https://s3-us-west-2.amazonaws.com/soundskirby/chinese-gong-daniel_simon.wav"
@@ -22,6 +20,14 @@ export default function App() {
     volume: 0.3
   });
 
+  // Called When Clicked - Starts Countdown - Removes (Completion) Notice
+  const handleCountDown = () => {
+    setStartCount(true);
+    setEnd(false);
+    setHiddenTime(0);
+  };
+
+  // Custom Hook that acts like setInterval. Moves 11:00 to 10:59, & formats 10:9 to 10:09, & ends at 0:00
   useInterval(() => {
     if (startCount) {
       if (min <= 0 && seconds <= "00") {
@@ -37,16 +43,23 @@ export default function App() {
     }
   }, 1000);
 
+  // When Time runs out or Stop is clicked - clears state and plays sound
   const handleStop = () => {
-    setStartCount(false);
-    setSeconds("00");
-    setMin(0);
-    setEnd(true);
+    clearSettings();
     sound.play();
   };
 
+  // Clears all State
+  const clearSettings = () => {
+    setStartCount(false);
+    setSeconds("00");
+    setMin(0);
+    setHiddenTime(5);
+    setEnd(true);
+  };
+
+  // Method Runs when Countdown Ends or Stopped... Runs for 5 seconds from a hidden timer.
   useInterval(() => {
-    console.log(hiddenTime);
     if (end && hiddenTime > 0) {
       setHiddenTime(hiddenTime - 1);
     } else if (end && hiddenTime <= 0) {
@@ -56,6 +69,7 @@ export default function App() {
 
   return (
     <div className="App">
+      {/* BASIC VIEW - USER Set Time and Button to Start Shown  */}
       {!startCount && (
         <div>
           <input
@@ -67,12 +81,12 @@ export default function App() {
             placeholder="Enter Desired Time"
             onChange={event => setMin(event.target.value)}
           />
-
           <button className="btn btn-primary" onClick={() => handleCountDown()}>
             Set Timer
           </button>
         </div>
       )}
+      {/* COUNTDOWN VIEW - Second By Second Countdown Shown and Stop Button  */}
       {startCount && (
         <div>
           <h1 className="counting">{`${min}:${seconds}`}</h1>
@@ -81,7 +95,8 @@ export default function App() {
           </button>
         </div>
       )}
-      <div>{end && <h1>OVER</h1>}</div>
+      {/* END VIEW - Completion shown Below BASIC VIEW */}
+      <div className="complete-bnr">{end && <h1>Completion</h1>}</div>
     </div>
   );
 }
