@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-
+import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import useInterval from "./useInterval";
+import { Howl } from "howler";
 
 export default function App() {
   const [min, setMin] = useState(0);
@@ -12,13 +13,20 @@ export default function App() {
     setStartCount(true);
   };
 
+  const sound = new Howl({
+    src: [
+      "https://s3-us-west-2.amazonaws.com/soundskirby/chinese-gong-daniel_simon.wav"
+    ],
+    volume: 0.3
+  });
+
   const handleStop = () => {
     setStartCount(false);
     setSeconds("00");
     setMin(0);
+    sound.play();
   };
 
-  //
   useInterval(() => {
     if (startCount) {
       if (min <= 0 && seconds <= "00") {
@@ -39,16 +47,31 @@ export default function App() {
       {!startCount && (
         <div>
           <input
+            className="form-control"
             placeholder="Enter Desired Min"
             onChange={event => setMin(event.target.value)}
+            style={{
+              textAlign: "center",
+              background: "#282c34",
+              border: "none",
+              fontSize: "40px",
+              fontStyle: "bold",
+              height: "20vh",
+              marginBottom: "10vh",
+              color: "white"
+            }}
           />
-          <button onClick={() => handleCountDown()}>Set Timer</button>
+          <button className="btn btn-primary" onClick={() => handleCountDown()}>
+            Set Timer
+          </button>
         </div>
       )}
       {startCount && (
         <div>
-          <button onClick={() => handleStop()}>Stop Timer</button>
-          <p>{`${min}:${seconds}`}</p>
+          <h1 className="counting">{`${min}:${seconds}`}</h1>
+          <button className="btn btn-primary" onClick={() => handleStop()}>
+            Stop Timer
+          </button>
         </div>
       )}
     </div>

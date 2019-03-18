@@ -1,5 +1,17 @@
 .App {
   text-align: center;
+  background: #282c34;
+  height: 100vh;
+  color: white;
+}
+
+.counting {
+  text-align: center;
+  font-size: 40px;
+  font-style: bold;
+  padding: 10%;
+  height: 20vh;
+  margin-bottom: 10vh;
 }
 
 .App-logo {
