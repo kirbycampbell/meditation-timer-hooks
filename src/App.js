@@ -77,15 +77,23 @@ export default function App() {
       {/* NAV BURGER VIEW AT TOP  */}
 
       <div className="top-nav">
+        <h1 className="webtitle">Meditation Timer</h1>
         <i className="icon fas fa-bars" onClick={() => handleMenu()} />
       </div>
-      {menuShow && <div className="my-menu">HELLO</div>}
+      {menuShow && (
+        <div className="my-menu">
+          <div className="inner-menu">Home</div>
+          <div className="inner-menu">Save</div>
+          <div className="inner-menu">Load</div>
+          <div className="inner-menu">Preset</div>
+        </div>
+      )}
 
       {/* END VIEW - Completion shown Below BASIC VIEW */}
       <div className="complete-bnr">
         {end && (
           <h1 className="complete" onClick={() => setHiddenTime(0)}>
-            Completion
+            Complete
           </h1>
         )}
       </div>
