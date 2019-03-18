@@ -1,7 +1,8 @@
 .App {
   text-align: center;
   background: #282c34;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   color: white;
 }
 
@@ -42,9 +43,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .my-menu {
   position: absolute;
-  background: rgba(112, 112, 172, 0.98);
+  background: #282c34;
   border-radius: 50px;
-  box-shadow: 8px 7px #277174a1;
   height: 40vh;
   width: 100%;
   margin-bottom: 10vh;
@@ -53,6 +53,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .inner-menu {
   display: grid;
+  background: rgba(0, 0, 0, 0.411);
   cursor: pointer;
   margin-top: 1.7vh;
   border-radius: 40px;
@@ -60,7 +61,6 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 20px;
   align-items: center;
   row-gap: 1vh;
-  /* border: 10px solid rgba(0, 128, 0, 0.062); */
 }
 
 .inner-menu:hover {
@@ -79,12 +79,19 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .top-nav {
   display: grid;
+  background-image: url("https://i.imgur.com/dqCEoaB.jpg");
+  background-size: cover;
+  background-position: center;
   align-content: center;
-  height: 14vh;
+  height: 20vh;
 }
 
 .webtitle {
+  background: rgba(0, 0, 0, 0.651);
+  user-select: none;
   font-family: "Srisakdi", cursive;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
 }
 
 .complete-bnr {
@@ -109,7 +116,8 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 20px;
   height: 10vh;
   width: 70vw;
-  margin-top: 30%;
+  position: relative;
+  bottom: -80px;
   margin-bottom: 5%;
   border-radius: 100px;
 }
