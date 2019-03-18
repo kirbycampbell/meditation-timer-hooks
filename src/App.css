@@ -122,6 +122,28 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 100px;
 }
 
+.user-options {
+  margin-top: 20px;
+  font-size: 36px;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.user-btn {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.user-btn:hover {
+  opacity: 1;
+}
+
+.user-btn:active {
+  opacity: 1;
+  box-shadow: 3px rgb(48, 21, 21);
+  transform: translateY(4px);
+}
+
 .icon {
   cursor: pointer;
   margin-right: 8%;

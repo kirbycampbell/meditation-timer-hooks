@@ -88,7 +88,13 @@ export default function App() {
           <div className="inner-menu">Preset</div>
         </div>
       )}
-
+      {/* User Selection View */}
+      <div className="user-options">
+        <i className="fas fa-headphones user-btn" />
+        <i className="fas fa-ring user-btn" />
+        <i className="fas fa-font user-btn" />
+        <i className="far fa-save user-btn" />
+      </div>
       {/* END VIEW - Completion shown Below BASIC VIEW */}
       <div className="complete-bnr">
         {end && (
