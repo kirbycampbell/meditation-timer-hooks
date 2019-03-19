@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import useInterval from "./useInterval";
 import { Howl } from "howler";
+import TopNav from "./Containers/TopNav";
 
 export default function App() {
   //Declares all of the state items min(minute), sec(second), startCount, end, hiddenTime
@@ -76,18 +77,7 @@ export default function App() {
     <div className="App">
       {/* NAV BURGER VIEW AT TOP  */}
 
-      <div className="top-nav">
-        <h1 className="webtitle">Meditation Timer</h1>
-        <i className="icon fas fa-bars" onClick={() => handleMenu()} />
-      </div>
-      {menuShow && (
-        <div className="my-menu">
-          <div className="inner-menu">Home</div>
-          <div className="inner-menu">Save</div>
-          <div className="inner-menu">Load</div>
-          <div className="inner-menu">Preset</div>
-        </div>
-      )}
+      <TopNav menuShow={menuShow} handleMenu={handleMenu} />
       {/* User Selection View */}
       <div className="user-options">
         <i className="fas fa-headphones user-btn" />
