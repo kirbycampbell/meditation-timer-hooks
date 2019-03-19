@@ -4,6 +4,10 @@ import "./App.css";
 import useInterval from "./useInterval";
 import { Howl } from "howler";
 import TopNav from "./Containers/TopNav";
+import UserSelectView from "./Containers/UserSelectView";
+import Complete from "./Containers/Complete";
+import TimerView from "./Containers/TimerView";
+import CountDownView from "./Containers/CountDownView";
 
 export default function App() {
   //Declares all of the state items min(minute), sec(second), startCount, end, hiddenTime
@@ -75,58 +79,21 @@ export default function App() {
 
   return (
     <div className="App">
-      {/* NAV BURGER VIEW AT TOP  */}
-
       <TopNav menuShow={menuShow} handleMenu={handleMenu} />
-      {/* User Selection View */}
-      <div className="user-options">
-        <i className="fas fa-headphones user-btn" />
-        <i className="fas fa-ring user-btn" />
-        <i className="fas fa-font user-btn" />
-        <i className="far fa-save user-btn" />
-      </div>
-      {/* END VIEW - Completion shown Below BASIC VIEW */}
-      <div className="complete-bnr">
-        {end && (
-          <h1 className="complete" onClick={() => setHiddenTime(0)}>
-            Complete
-          </h1>
-        )}
-      </div>
-
-      {/* BASIC VIEW - USER Set Time and Button to Start Shown  */}
-      {!startCount && !end && (
-        <div>
-          <input
-            type="number"
-            min="1"
-            max="140"
-            required
-            className="time-form form-control"
-            placeholder="Enter Desired Time"
-            onChange={event => setMin(event.target.value)}
-          />
-          <button
-            className="btn btn-primary btn-loca"
-            onClick={() => handleCountDown()}
-          >
-            Set Timer
-          </button>
-        </div>
-      )}
-      {/* COUNTDOWN VIEW - Second By Second Countdown Shown and Stop Button  */}
-      {startCount && (
-        <div>
-          <h1 className="counting">{`${min}:${seconds}`}</h1>
-
-          <button
-            className="btn btn-primary btn-loca"
-            onClick={() => handleStop()}
-          >
-            Stop Timer
-          </button>
-        </div>
-      )}
+      <UserSelectView />
+      <Complete end={end} setHiddenTime={setHiddenTime} />
+      <TimerView
+        startCount={startCount}
+        end={end}
+        setMin={setMin}
+        handleCountDown={handleCountDown}
+      />
+      <CountDownView
+        startCount={startCount}
+        handleStop={handleStop}
+        min={min}
+        seconds={seconds}
+      />
     </div>
   );
 }

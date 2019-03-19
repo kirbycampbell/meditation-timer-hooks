@@ -1,8 +1,9 @@
 import React from "react";
 
-const TopNav = React.memo(function MyComponent(props) {
+const TopNav = React.memo(function TopNav(props) {
   return (
     <div>
+      {/* NAV & BURGER VIEW AT TOP  */}
       <div className="top-nav">
         <h1 className="webtitle">Meditation Timer</h1>
         <i className="icon fas fa-bars" onClick={() => props.handleMenu()} />
