@@ -105,7 +105,7 @@ export default function App() {
       </div>
 
       {/* BASIC VIEW - USER Set Time and Button to Start Shown  */}
-      {!startCount && (
+      {!startCount && !end && (
         <div>
           <input
             type="number"
