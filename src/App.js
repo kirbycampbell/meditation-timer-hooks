@@ -20,6 +20,7 @@ export default function App() {
   const [bgMusicView, setbgMusicView] = useState(false);
   const [endSoundView, setEndSoundView] = useState(false);
   const [hideTimerView, setHideTimerView] = useState(false);
+  const [chosenDing, setChosenDing] = useState("sound");
 
   // Declares and Assigns Ending Sound
   const sound = new Howl({
