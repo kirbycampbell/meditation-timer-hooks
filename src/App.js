@@ -17,6 +17,9 @@ export default function App() {
   const [end, setEnd] = useState(false);
   const [hiddenTime, setHiddenTime] = useState(5);
   const [menuShow, setMenuShow] = useState(false);
+  const [bgMusicView, setbgMusicView] = useState(false);
+  const [endSoundView, setEndSoundView] = useState(false);
+  const [hideTimerView, setHideTimerView] = useState(false);
 
   // Declares and Assigns Ending Sound - TODO: Extract several sounds - and give user a choice
   const sound = new Howl({
@@ -79,18 +82,26 @@ export default function App() {
 
   const handleBckgrndMusic = () => {
     console.log("Background Music Clicked");
+    setbgMusicView(!bgMusicView);
+    setHideTimerView(true);
   };
 
   const handleDing = () => {
     console.log("Ding Selector Clicked");
+    setEndSoundView(!endSoundView);
+    setHideTimerView(true);
   };
 
   const handleTimerView = () => {
     console.log("Timer View Clicked");
+    setbgMusicView(false);
+    setEndSoundView(false);
+    setHideTimerView(false);
   };
 
   const handleSave = () => {
     console.log("Save Option Clicked");
+    setHideTimerView(true);
   };
 
   return (
@@ -101,6 +112,7 @@ export default function App() {
         handleDing={handleDing}
         handleTimerView={handleTimerView}
         handleSave={handleSave}
+        startCount={startCount}
       />
       <Complete end={end} setHiddenTime={setHiddenTime} />
       <TimerView
@@ -108,6 +120,7 @@ export default function App() {
         end={end}
         setMin={setMin}
         handleCountDown={handleCountDown}
+        hideTimerView={hideTimerView}
       />
       <CountDownView
         startCount={startCount}

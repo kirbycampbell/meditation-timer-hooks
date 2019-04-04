@@ -4,7 +4,7 @@ const TimerView = React.memo(function TimerView(props) {
   return (
     <div>
       {/* BASIC VIEW - USER Set Time and Button to Start Shown  */}
-      {!props.startCount && !props.end && (
+      {!props.startCount && !props.end && !props.hideTimerView && (
         <div>
           <input
             type="number"
