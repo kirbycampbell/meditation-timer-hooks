@@ -77,10 +77,31 @@ export default function App() {
     setMenuShow(!menuShow);
   };
 
+  const handleBckgrndMusic = () => {
+    console.log("Background Music Clicked");
+  };
+
+  const handleDing = () => {
+    console.log("Ding Selector Clicked");
+  };
+
+  const handleTimerView = () => {
+    console.log("Timer View Clicked");
+  };
+
+  const handleSave = () => {
+    console.log("Save Option Clicked");
+  };
+
   return (
     <div className="App">
       <TopNav menuShow={menuShow} handleMenu={handleMenu} />
-      <UserSelectView />
+      <UserSelectView
+        handleBckgrndMusic={handleBckgrndMusic}
+        handleDing={handleDing}
+        handleTimerView={handleTimerView}
+        handleSave={handleSave}
+      />
       <Complete end={end} setHiddenTime={setHiddenTime} />
       <TimerView
         startCount={startCount}
