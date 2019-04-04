@@ -21,12 +21,35 @@ export default function App() {
   const [endSoundView, setEndSoundView] = useState(false);
   const [hideTimerView, setHideTimerView] = useState(false);
 
-  // Declares and Assigns Ending Sound - TODO: Extract several sounds - and give user a choice
+  // Declares and Assigns Ending Sound
   const sound = new Howl({
     src: [
       "https://s3-us-west-2.amazonaws.com/soundskirby/chinese-gong-daniel_simon.wav"
     ],
     volume: 0.3
+  });
+
+  const background1 = new Howl({
+    src: [
+      "https://s3-us-west-2.amazonaws.com/soundskirby/465504__klankbeeld__woods-nl-march-nl-01-190329-1326.wav"
+    ]
+  });
+  const gong1 = new Howl({
+    src: [
+      "https://s3-us-west-2.amazonaws.com/soundskirby/46062__reinsamba__gong.wav"
+    ]
+  });
+
+  const chime1 = new Howl({
+    src: [
+      "https://s3-us-west-2.amazonaws.com/soundskirby/454609__richcraftstudios__richcraft-chime-d-20181219.wav"
+    ]
+  });
+
+  const singingBowl1 = new Howl({
+    src: [
+      "https://s3-us-west-2.amazonaws.com/soundskirby/449951__steffcaffrey__singing-bowl-male-frequency.wav"
+    ]
   });
 
   // Called When Clicked - Starts Countdown - Removes (Completion) Notice
