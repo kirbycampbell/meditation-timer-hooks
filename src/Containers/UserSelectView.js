@@ -10,6 +10,12 @@ const UserSelectView = React.memo(function UserSelectView(props) {
         <i className="fas fa-font user-btn" />
         <i className="far fa-save user-btn" />
       </div>
+      <div className="user-opt-descrip">
+        <div>Background Music</div>
+        <div>End Sound</div>
+        <div>Timer</div>
+        <div>Save</div>
+      </div>
     </div>
   );
 });
