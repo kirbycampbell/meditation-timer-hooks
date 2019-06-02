@@ -8,6 +8,7 @@ import UserSelectView from "./Containers/UserSelectView";
 import Complete from "./Containers/Complete";
 import TimerView from "./Containers/TimerView";
 import CountDownView from "./Containers/CountDownView";
+import { CSSTransitionGroup } from "react-transition-group";
 
 export default function App() {
   //Declares all of the state items min(minute), sec(second), startCount, end, hiddenTime
@@ -139,13 +140,22 @@ export default function App() {
         startCount={startCount}
       />
       <Complete end={end} setHiddenTime={setHiddenTime} />
-      <TimerView
-        startCount={startCount}
-        end={end}
-        setMin={setMin}
-        handleCountDown={handleCountDown}
-        hideTimerView={hideTimerView}
-      />
+
+      <CSSTransitionGroup
+        transitionName="example"
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnter={false}
+        transitionLeave={false}
+      >
+        <TimerView
+          startCount={startCount}
+          end={end}
+          setMin={setMin}
+          handleCountDown={handleCountDown}
+          hideTimerView={hideTimerView}
+        />
+      </CSSTransitionGroup>
       <CountDownView
         startCount={startCount}
         handleStop={handleStop}

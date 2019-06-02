@@ -10,6 +10,7 @@
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
     "react-sound": "^1.2.0",
+    "react-transition-group": "^1.2.1",
     "simple-sfx": "^1.0.1"
   },
   "scripts": {

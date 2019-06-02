@@ -1,0 +1,14 @@
+{
+    "meditation": {
+        "awscloudformation": {
+            "AuthRoleName": "meditate-app-20190524200942-authRole",
+            "UnauthRoleArn": "arn:aws:iam::706688031207:role/meditate-app-20190524200942-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::706688031207:role/meditate-app-20190524200942-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "meditate-app-20190524200942-deployment",
+            "UnauthRoleName": "meditate-app-20190524200942-unauthRole",
+            "StackName": "meditate-app-20190524200942",
+            "StackId": "arn:aws:cloudformation:us-west-2:706688031207:stack/meditate-app-20190524200942/8afb5020-7e9a-11e9-9589-02c3ece5f9fa"
+        }
+    }
+}
