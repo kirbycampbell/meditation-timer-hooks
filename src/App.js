@@ -106,9 +106,9 @@ export default function App() {
   };
 
   const handleBckgrndMusic = () => {
-    console.log("Background Music Clicked");
-    setbgMusicView(!bgMusicView);
-    setHideTimerView(true);
+    // console.log("Background Music Clicked");
+    // setbgMusicView(!bgMusicView);
+    // setHideTimerView(true);
   };
 
   const handleDing = () => {
@@ -118,15 +118,15 @@ export default function App() {
   };
 
   const handleTimerView = () => {
-    console.log("Timer View Clicked");
-    setbgMusicView(false);
-    setEndSoundView(false);
-    setHideTimerView(false);
+    // console.log("Timer View Clicked");
+    // setbgMusicView(false);
+    // setEndSoundView(false);
+    // setHideTimerView(false);
   };
 
   const handleSave = () => {
-    console.log("Save Option Clicked");
-    setHideTimerView(true);
+    // console.log("Save Option Clicked");
+    // setHideTimerView(true);
   };
 
   return (
