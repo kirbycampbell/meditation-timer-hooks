@@ -6,7 +6,7 @@ const TopNav = React.memo(function TopNav(props) {
       {/* NAV & BURGER VIEW AT TOP  */}
       <div className="top-nav">
         <h1 className="webtitle">Meditation Timer</h1>
-        <i className="icon fas fa-bars" onClick={() => props.handleMenu()} />
+        {/* <i className="icon fas fa-bars" onClick={() => props.handleMenu()} /> */}
       </div>
       {props.menuShow && (
         <div className="my-menu">

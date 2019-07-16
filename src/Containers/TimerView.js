@@ -19,7 +19,7 @@ const TimerView = React.memo(function TimerView(props) {
               max="140"
               required
               className="time-form form-control"
-              placeholder="Enter Desired Time"
+              placeholder="Enter Desired Time (ie. Enter numbers like 1 or 4)"
               onChange={event => props.setMin(event.target.value)}
             />
             <button
